@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#3b5bdb" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>Gerador de Resources</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="assets/tool-icon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png" />
+    <link rel="apple-touch-icon" href="assets/icon-192.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel" aria-labelledby="app-title">
+        <header class="panel__header">
+          <div class="title-row">
+            <div class="title-row__main">
+              <img src="assets/tool-icon.svg" alt="Ícone da ferramenta" class="app-icon" />
+              <h1 id="app-title">Gerador de Chaves de Resource</h1>
+            </div>
+            <button id="themeToggleBtn" type="button" class="btn btn--ghost theme-toggle" aria-label="Alternar tema">
+              🌙 Escuro
+            </button>
+          </div>
+          <p>
+            Digite uma frase para gerar automaticamente os formatos
+            <strong>CONSTANT_CASE</strong>, <strong>PascalCase</strong> e
+            <strong>camelCase com prefixo</strong>.
+          </p>
+        </header>
+
+        <div class="input-area">
+          <label for="phraseInput">Frase de origem</label>
+          <textarea
+            id="phraseInput"
+            rows="4"
+            placeholder="Digite a frase para gerar as chaves de resource..."
+          ></textarea>
+
+          <div class="actions">
+            <button id="generateBtn" type="button" class="btn btn--primary">
+              Gerar Resources
+            </button>
+            <button id="clearBtn" type="button" class="btn btn--ghost">
+              Limpar
+            </button>
+          </div>
+        </div>
+
+        <section class="results" aria-live="polite" aria-label="Resultados gerados">
+          <article class="result-card">
+            <div class="result-card__top">
+              <h2>Modelo 1 — CONSTANT_CASE</h2>
+              <button type="button" class="btn btn--copy" data-copy-target="constantResult">
+                Copiar
+              </button>
+            </div>
+            <p id="constantResult" class="result-value">—</p>
+          </article>
+
+          <article class="result-card">
+            <div class="result-card__top">
+              <h2>Modelo 2 — PascalCase</h2>
+              <button type="button" class="btn btn--copy" data-copy-target="pascalResult">
+                Copiar
+              </button>
+            </div>
+            <p id="pascalResult" class="result-value">—</p>
+          </article>
+
+          <article class="result-card">
+            <div class="result-card__top">
+              <h2>Modelo 3 — camelCase com prefixo</h2>
+              <button type="button" class="btn btn--copy" data-copy-target="camelResult">
+                Copiar
+              </button>
+            </div>
+            <p id="camelResult" class="result-value">—</p>
+          </article>
+        </section>
+
+        <section class="history" aria-label="Histórico recente">
+          <h2>Últimas frases</h2>
+          <ul id="historyList"></ul>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
